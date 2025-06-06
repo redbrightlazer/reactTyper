@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from "react";
 
-function Timer({ onTimeUp }) {
+function WrapperT() {
   const [timeLeft, setTimeLeft] = useState(60 * 1000); // milliseconds
   const [isRunning, setIsRunning] = useState(false);
 
+  return (
+    <>
+      <>
+        <Timer
+          timeLeft={timeLeft}
+          setTimeLeft={setTimeLeft}
+          isRunning={isRunning}
+          setIsRunning={setIsRunning}
+          onTimeUp={() => {}}
+        />
+        <Typer setIsRunning={setIsRunning} />
+      </>
+    </>
+  );
+}
+
+function Timer({ timeLeft, setTimeLeft, isRunning, setIsRunning, onTimeUp }) {
   useEffect(() => {
     let intervalId;
 
@@ -45,19 +62,27 @@ function Timer({ onTimeUp }) {
     </>
   );
 }
-function Typer() {
+function Typer({ setIsRunning }) {
   function Submit(e) {
     e.preventDefault();
     console.log("submitted: " + e.target[0].value);
   }
+  function Change(e) {
+    console.log("changed: " + e.target.value);
+    setIsRunning(true);
+  }
+
   return (
     <>
-      <form action="" onSubmit={Submit}>
-        <input type="text" placeholder="Type... press enter to submit" />
+      <form action="" onSubmit={Submit} id="typer">
+        <input
+          onChange={Change}
+          type="text"
+          placeholder="Type... press enter to submit"
+        />
       </form>
     </>
   );
 }
 
-export default Timer;
-export { Typer };
+export default WrapperT;

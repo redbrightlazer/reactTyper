@@ -1,9 +1,8 @@
-import Timer, { Typer } from "./typing.jsx";
+import WrapperT from "./typing.jsx";
 function App() {
   return (
     <>
-      <Timer />
-      <Typer />
+      <WrapperT />
     </>
   );
 }

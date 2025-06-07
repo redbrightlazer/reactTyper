@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 function WrapperT() {
-  const [timeLeft, setTimeLeft] = useState(60 * 1000); // milliseconds
+  const [timeLeft, setTimeLeft] = useState(10 * 1000); // milliseconds
   const [isRunning, setIsRunning] = useState(false);
 
   return (
@@ -14,7 +14,7 @@ function WrapperT() {
           setIsRunning={setIsRunning}
           onTimeUp={() => {}}
         />
-        <Typer setIsRunning={setIsRunning} />
+        <Typer setIsRunning={setIsRunning} timeLeft={timeLeft} />
       </>
     </>
   );
@@ -62,7 +62,7 @@ function Timer({ timeLeft, setTimeLeft, isRunning, setIsRunning, onTimeUp }) {
     </>
   );
 }
-function Typer({ setIsRunning }) {
+function Typer({ setIsRunning, timeLeft }) {
   function Submit(e) {
     e.preventDefault();
     console.log("submitted: " + e.target[0].value);
@@ -71,7 +71,12 @@ function Typer({ setIsRunning }) {
     console.log("changed: " + e.target.value);
     setIsRunning(true);
   }
-
+  useEffect(() => {
+    if (timeLeft === 0) {
+      setIsRunning(false);
+      console.log("Time is up!");
+    }
+  }, [timeLeft, setIsRunning]);
   return (
     <>
       <form action="" onSubmit={Submit} id="typer">

@@ -1,0 +1,73 @@
+body {
+  background-color: rgb(255, 224, 183);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 100vh;
+  min-height: 90vh;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-weight: 850;
+  font-size: larger;
+}
+.reset-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 7s ease-in-out;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+.reset-button:hover {
+  background-color: #8d0101;
+  border: black 4px solid;
+  scale: 1.2;
+}
+.input {
+  margin-top: 50px;
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  width: 80%;
+  height: 50px;
+  font-size: 24px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  overflow: auto;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+}
+.input:focus {
+  outline: none;
+  border: 17px solid rgb(0, 255, 217);
+  border-radius: 10%;
+}
+.wpm {
+  color: rgb(0, 95, 95);
+  padding: 7px 15px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 6px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    linear-gradient(to right, rgb(26, 255, 0), rgb(0, 255, 255)) border-box;
+  margin: 0 auto;
+  width: max-content;
+}
+.typer /* (parent of .wpm) */ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

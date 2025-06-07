@@ -1,4 +1,4 @@
-import WrapperT from "./typing.jsx";
+import WrapperT from "./typing/typing.jsx";
 function App() {
   return (
     <>
